@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>有意打开 Privacy Policy</title>
-  <meta name="description" content="有意打开隐私政策 / OpenIntent Privacy Policy">
+  <meta name="description" content="有意打开隐私政策 / 有意打開隱私政策 / OpenIntent Privacy Policy">
   <style>
     :root {
       color-scheme: light;
@@ -22,7 +22,7 @@
       background: var(--bg);
     }
     main {
-      max-width: 920px;
+      max-width: 980px;
       margin: 0 auto;
       padding: 48px 20px 72px;
     }
@@ -42,7 +42,7 @@
       margin: 0 0 8px;
     }
     h2 {
-      font-size: 21px;
+      font-size: 22px;
       margin: 0 0 10px;
     }
     h3 {
@@ -60,7 +60,7 @@
     }
     .summary {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 10px;
       margin-top: 18px;
     }
@@ -69,6 +69,19 @@
       border-radius: 8px;
       padding: 12px;
       background: #fafbfd;
+    }
+    .language-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .language-nav a {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: #fafbfd;
+      text-decoration: none;
     }
     a {
       color: var(--accent);
@@ -83,100 +96,159 @@
   <main>
     <header>
       <h1>有意打开 Privacy Policy</h1>
-      <p class="muted">OpenIntent Privacy Policy. Effective date: June 12, 2026. Last updated: June 12, 2026.</p>
-      <p>有意打开 is an iOS app that helps users intentionally lock and unlock selected apps with Apple Screen Time, FamilyControls, ManagedSettings, and ManagedSettingsUI. This policy explains what data the app handles, where it stays, and how support requests are handled.</p>
+      <p class="muted">Effective date: June 12, 2026. Last updated: June 13, 2026.</p>
+      <p>有意打开 / 有意打開 / OpenIntent helps reduce impulsive app launches with Apple Screen Time groups, Shortcuts actions, and an optional confirmation step on the system shield page. This page explains what data is handled and where it stays.</p>
       <div class="summary">
-        <div><strong>No account.</strong><br>No sign-in or user profile is required.</div>
-        <div><strong>No tracking.</strong><br>No advertising ID, third-party analytics SDK, or tracking SDK is used.</div>
-        <div><strong>Local-first.</strong><br>Protection groups and system tokens stay on device.</div>
+        <div><strong>不收集、无追踪 / No collection, no tracking</strong><br>不使用账号、广告、分析 SDK 或追踪 SDK。</div>
+        <div><strong>纯本地、不联网 / Local only, offline</strong><br>App 本身不连接网络，不上传你的选择。</div>
+        <div><strong>Screen Time 选择器</strong><br>App 选择由系统完成，OpenIntent 不理解你的具体选择。</div>
       </div>
+      <nav class="language-nav" aria-label="Languages">
+        <a href="#zh-Hans">简体中文</a>
+        <a href="#zh-Hant">繁體中文</a>
+        <a href="#en-US">English</a>
+      </nav>
     </header>
 
-    <section>
-      <h2>1. Who Provides the App</h2>
-      <p>The app is provided by Zhaochen Ren. For support, use the public support page: <a href="/support/openintent-app-pages/support.html">有意打开 Support</a>.</p>
+    <section id="zh-Hans">
+      <h2>简体中文</h2>
+
+      <h3>1. 提供方</h3>
+      <p>本 App 由 Zhaochen Ren 提供。支持页面：<a href="/support/openintent-app-pages/support.html">有意打开 Support</a>。</p>
+
+      <h3>2. 我们不收集的内容</h3>
+      <p>有意打开不收集个人数据，不销售数据，不做跨 App 追踪，也不包含广告网络或开发者控制的分析 SDK。App 不会收集或上传：</p>
+      <ul>
+        <li>姓名、邮箱、电话、账号凭据、通讯录；</li>
+        <li>广告标识符、用于追踪的设备标识符、跨 App 追踪数据；</li>
+        <li>使用分析事件、浏览历史、精确位置、照片或文件；</li>
+        <li>你在 Screen Time 选择器里选择的具体 App、类别或网站清单。</li>
+      </ul>
+
+      <h3>3. App 本地使用的数据</h3>
+      <p>为了提供加锁、解锁、快捷指令和拦截页确认等功能，App 会在本机保存少量配置：</p>
+      <ul>
+        <li>你创建的保护分组名称；</li>
+        <li>分组的加锁状态、解锁状态、紧急全部解锁状态和相关设置；</li>
+        <li>是否允许在 App 拦截页解锁当前 App 所在分组并进入；</li>
+        <li>是否允许 Shortcuts 动作执行分组加锁或解锁；</li>
+        <li>系统 FamilyControls 提供的选择 token；</li>
+        <li>使用引导是否已显示等本地界面状态。</li>
+      </ul>
+      <p>这些数据保存在 App 沙盒和 App Group 容器中，用于主 App、Shield Action extension 和 Shield Configuration extension 协同工作。App 本身不联网，不会把这些数据发送到开发者服务器。</p>
+
+      <h3>4. Screen Time、FamilyControls 和 Shortcuts</h3>
+      <p>App 选择和 Screen Time 授权由 Apple 系统框架处理。有意打开只接收系统提供的 token，用于本地调用 ManagedSettings 加锁或解锁对应分组。由于 token 是系统抽象标识，App 本身无法获得你选择的具体 App 信息。</p>
+      <p>Shortcuts 动作，例如 <code>Lock App Group</code> 和 <code>Unlock App Group</code>，用于在本机执行你设置的分组操作。快捷指令可把“解锁并打开 App”和“关闭后重新加锁”串起来。</p>
+
+      <h3>5. 支持网站和 GitHub Issues</h3>
+      <p>本隐私政策和支持页面托管在 GitHub Pages。GitHub 可能按自己的条款处理标准网页访问日志。这些页面不包含由 App 开发者控制的第三方分析脚本或广告脚本。</p>
+      <p>如果你通过 GitHub Issues 提交支持请求，你主动发布的信息可能是公开的。请不要在公开 issue 中包含私密 App 列表、个人联系方式、私密截图或敏感家庭/设备信息。</p>
+
+      <h3>6. 删除和选择</h3>
+      <p>本地数据会保留在你的设备上，直到你修改或删除分组、撤销权限、重置相关设置或删除 App。删除 App 会按 iOS 行为移除 App 沙盒内的数据。</p>
+      <ul>
+        <li>如果不希望 App 管理 App 拦截，请不要授予 Screen Time 权限。</li>
+        <li>你可以从分组中移除选择，或删除分组来停止对应保护。</li>
+        <li>你可以在 iOS 设置中撤销 Screen Time 授权。</li>
+      </ul>
+
+      <h3>7. 联系方式</h3>
+      <p>产品支持或隐私问题，请访问 <a href="/support/openintent-app-pages/support.html">有意打开 Support</a>。</p>
     </section>
 
-    <section>
-      <h2>2. Data We Do Not Collect From the App</h2>
-      <p>有意打开 does not collect personal data from the app. In particular, the app does not collect or upload:</p>
+    <section id="zh-Hant">
+      <h2>繁體中文</h2>
+
+      <h3>1. 提供方</h3>
+      <p>本 App 由 Zhaochen Ren 提供。支援頁面：<a href="/support/openintent-app-pages/support.html">有意打開 Support</a>。</p>
+
+      <h3>2. 我們不收集的內容</h3>
+      <p>有意打開不收集個人資料，不銷售資料，不做跨 App 追蹤，也不包含廣告網路或開發者控制的分析 SDK。App 不會收集或上傳：</p>
+      <ul>
+        <li>姓名、電子郵件、電話、帳號憑證、通訊錄；</li>
+        <li>廣告識別碼、用於追蹤的裝置識別碼、跨 App 追蹤資料；</li>
+        <li>使用分析事件、瀏覽紀錄、精確位置、照片或檔案；</li>
+        <li>你在螢幕使用時間選擇器裡選擇的具體 App、類別或網站清單。</li>
+      </ul>
+
+      <h3>3. App 本機使用的資料</h3>
+      <p>為了提供加鎖、解鎖、捷徑和攔截頁確認等功能，App 會在本機保存少量設定：</p>
+      <ul>
+        <li>你建立的保護分組名稱；</li>
+        <li>分組的加鎖狀態、解鎖狀態、緊急全部解鎖狀態和相關設定；</li>
+        <li>是否允許在 App 攔截頁解鎖目前 App 所在分組並進入；</li>
+        <li>是否允許 Shortcuts 動作執行分組加鎖或解鎖；</li>
+        <li>系統 FamilyControls 提供的選擇 token；</li>
+        <li>使用引導是否已顯示等本機介面狀態。</li>
+      </ul>
+      <p>這些資料保存在 App 沙盒和 App Group 容器中，用於主 App、Shield Action extension 和 Shield Configuration extension 協同工作。App 本身不連網，不會把這些資料傳送到開發者伺服器。</p>
+
+      <h3>4. 螢幕使用時間、FamilyControls 和 Shortcuts</h3>
+      <p>App 選擇和螢幕使用時間授權由 Apple 系統框架處理。有意打開只接收系統提供的 token，用於本機呼叫 ManagedSettings 加鎖或解鎖對應分組。由於 token 是系統抽象識別，App 本身無法取得你選擇的具體 App 資訊。</p>
+      <p>Shortcuts 動作，例如 <code>Lock App Group</code> 和 <code>Unlock App Group</code>，用於在本機執行你設定的分組操作。捷徑可把「解鎖並打開 App」和「關閉後重新加鎖」串起來。</p>
+
+      <h3>5. 支援網站和 GitHub Issues</h3>
+      <p>本隱私政策和支援頁面託管在 GitHub Pages。GitHub 可能依自己的條款處理標準網頁存取紀錄。這些頁面不包含由 App 開發者控制的第三方分析腳本或廣告腳本。</p>
+      <p>如果你透過 GitHub Issues 提交支援請求，你主動發布的資訊可能是公開的。請不要在公開 issue 中包含私密 App 清單、個人聯絡方式、私密截圖或敏感家庭/裝置資訊。</p>
+
+      <h3>6. 刪除和選擇</h3>
+      <p>本機資料會保留在你的裝置上，直到你修改或刪除分組、撤銷權限、重置相關設定或刪除 App。刪除 App 會依 iOS 行為移除 App 沙盒內的資料。</p>
+      <ul>
+        <li>如果不希望 App 管理 App 攔截，請不要授予螢幕使用時間權限。</li>
+        <li>你可以從分組中移除選擇，或刪除分組來停止對應保護。</li>
+        <li>你可以在 iOS 設定中撤銷螢幕使用時間授權。</li>
+      </ul>
+
+      <h3>7. 聯絡方式</h3>
+      <p>產品支援或隱私問題，請訪問 <a href="/support/openintent-app-pages/support.html">有意打開 Support</a>。</p>
+    </section>
+
+    <section id="en-US">
+      <h2>English</h2>
+
+      <h3>1. Provider</h3>
+      <p>The app is provided by Zhaochen Ren. For support, visit <a href="/support/openintent-app-pages/support.html">OpenIntent Support</a>.</p>
+
+      <h3>2. Data We Do Not Collect</h3>
+      <p>OpenIntent does not collect personal data from the app, does not sell data, does not track you across apps, and does not include advertising networks or developer-controlled analytics SDKs. The app does not collect or upload:</p>
       <ul>
         <li>name, email address, phone number, account credentials, or contact lists;</li>
         <li>advertising identifiers, device identifiers for tracking, or cross-app tracking data;</li>
-        <li>analytics events, crash reports, browsing history, precise location, photos, or files;</li>
-        <li>a server-side copy of the apps, categories, or web domains selected in Screen Time.</li>
+        <li>analytics events, browsing history, precise location, photos, or files;</li>
+        <li>a server-side copy of the specific apps, categories, or websites selected in Screen Time.</li>
       </ul>
-    </section>
 
-    <section>
-      <h2>3. Local Data Used by the App</h2>
-      <p>To provide its core functionality, the app stores limited configuration data locally on your device, including:</p>
+      <h3>3. Local Data Used by the App</h3>
+      <p>To provide group locking, unlocking, Shortcuts actions, and optional shield-page confirmation, the app stores limited configuration locally on your device:</p>
       <ul>
-        <li>protection group names that you create;</li>
-        <li>lock/unlock state and group settings;</li>
-        <li>Apple-provided FamilyControls selection tokens for selected apps, categories, or web domains;</li>
-        <li>whether the in-app guide has been seen.</li>
+        <li>protected group names you create;</li>
+        <li>group lock state, unlock state, emergency unlock state, and related settings;</li>
+        <li>whether entry from the app shield is allowed for a protected group;</li>
+        <li>whether Shortcuts actions are allowed to lock or unlock a group;</li>
+        <li>Apple-provided FamilyControls selection tokens;</li>
+        <li>local interface state, such as whether the guide has been shown.</li>
       </ul>
-      <p>This data is stored in the app sandbox and shared app group container so the main app, Shield Action extension, and Shield Configuration extension can work together. It is not sent to a developer-operated server.</p>
-    </section>
+      <p>This data is stored in the app sandbox and shared app group container so the main app, Shield Action extension, and Shield Configuration extension can work together. The app itself does not connect to the network and does not send this data to a developer-operated server.</p>
 
-    <section>
-      <h2>4. Apple Screen Time and FamilyControls</h2>
-      <p>App selection and Screen Time authorization are handled by Apple system frameworks. 有意打开 receives system tokens needed to apply the protection you request. These tokens are used locally with ManagedSettings to lock or unlock selected apps and categories.</p>
-      <p>You can revoke Screen Time authorization in iOS Settings. If authorization is revoked, features that depend on FamilyControls may stop working until permission is granted again.</p>
-    </section>
+      <h3>4. Screen Time, FamilyControls, and Shortcuts</h3>
+      <p>App selection and Screen Time authorization are handled by Apple system frameworks. OpenIntent receives Apple-provided tokens used locally with ManagedSettings to lock or unlock protected groups. Because these tokens are system abstractions, OpenIntent does not understand the specific apps you chose.</p>
+      <p>Shortcuts actions, such as <code>Lock App Group</code> and <code>Unlock App Group</code>, run locally to perform the group actions you configure. Shortcuts can be used to unlock and open an app, then lock again after the app closes.</p>
 
-    <section>
-      <h2>5. Support Website and GitHub Issues</h2>
+      <h3>5. Support Website and GitHub Issues</h3>
       <p>This privacy policy and support page are hosted on GitHub Pages. GitHub may process standard web access logs according to GitHub's own terms and privacy practices. These pages do not include third-party analytics scripts or advertising scripts controlled by the app developer.</p>
-      <p>If you open a support request on GitHub Issues, the information you choose to post may be public. Do not include sensitive app lists, private screenshots, personal contact details, or other confidential information in a public issue.</p>
-    </section>
+      <p>If you open a support request on GitHub Issues, the information you choose to post may be public. Do not include private app lists, personal contact details, confidential screenshots, or sensitive family/device information in a public issue.</p>
 
-    <section>
-      <h2>6. How Data Is Used</h2>
-      <p>Local configuration data is used only to provide app protection features that you request: showing groups, applying shields, allowing intentional unlocks, restoring lock state, and showing the shield UI.</p>
-      <p>Support information you voluntarily provide through GitHub Issues is used to investigate bugs, answer questions, and improve documentation.</p>
-    </section>
-
-    <section>
-      <h2>7. Sharing, Sale, and Advertising</h2>
-      <p>有意打开 does not sell personal data, does not share app data with advertisers or data brokers, and does not use advertising networks. The app does not include a developer-operated backend for collecting user data.</p>
-    </section>
-
-    <section>
-      <h2>8. Retention and Deletion</h2>
-      <p>Local app data remains on your device until you change or delete groups, reset app settings where available, revoke relevant permissions, or delete the app. Deleting the app removes the app's local sandboxed data according to iOS behavior.</p>
-      <p>GitHub Issues content is controlled through GitHub. If you want a support issue edited or removed, request it in the issue thread or open a new support request.</p>
-    </section>
-
-    <section>
-      <h2>9. Security</h2>
-      <p>The app relies on iOS sandboxing, app group access controls, and Apple entitlement checks. No Internet transmission of app selection tokens is performed by the app. No system can be guaranteed completely secure, so avoid posting sensitive details in public support channels.</p>
-    </section>
-
-    <section>
-      <h2>10. Children's Privacy</h2>
-      <p>The app is not designed to collect personal data from children. The app uses Apple Screen Time and FamilyControls only after system authorization. If you believe a child has provided personal information through a public support request, contact support so the public content can be reviewed.</p>
-    </section>
-
-    <section>
-      <h2>11. Your Choices</h2>
+      <h3>6. Deletion and Choices</h3>
+      <p>Local app data remains on your device until you change or delete groups, revoke permissions, reset relevant settings, or delete the app. Deleting the app removes the app's sandboxed data according to iOS behavior.</p>
       <ul>
         <li>Do not grant Screen Time authorization if you do not want the app to manage selected app shields.</li>
-        <li>Remove selected apps or delete protection groups in the app to stop using those selections.</li>
-        <li>Delete the app to remove local app data from the device according to iOS behavior.</li>
-        <li>Use GitHub controls for content you choose to post in support issues.</li>
+        <li>Remove selections from a group, or delete a group, to stop using that protection.</li>
+        <li>Revoke Screen Time authorization in iOS Settings if needed.</li>
       </ul>
-    </section>
 
-    <section>
-      <h2>12. Changes</h2>
-      <p>This policy may be updated when the app's features, data handling, or support channels change. Material changes will be reflected by updating the "Last updated" date above.</p>
-    </section>
-
-    <section>
-      <h2>13. Contact</h2>
-      <p>For product support or privacy questions, visit <a href="/support/openintent-app-pages/support.html">有意打开 Support</a>.</p>
+      <h3>7. Contact</h3>
+      <p>For product support or privacy questions, visit <a href="/support/openintent-app-pages/support.html">OpenIntent Support</a>.</p>
     </section>
   </main>
 </body>

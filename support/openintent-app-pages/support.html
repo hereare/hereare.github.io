@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>有意打开 Support</title>
-  <meta name="description" content="有意打开支持页面 / OpenIntent Support">
+  <meta name="description" content="有意打开支持页面 / 有意打開支援頁面 / OpenIntent Support">
   <style>
     :root {
       color-scheme: light;
@@ -22,7 +22,7 @@
       background: var(--bg);
     }
     main {
-      max-width: 920px;
+      max-width: 980px;
       margin: 0 auto;
       padding: 48px 20px 72px;
     }
@@ -42,7 +42,7 @@
       margin: 0 0 8px;
     }
     h2 {
-      font-size: 21px;
+      font-size: 22px;
       margin: 0 0 10px;
     }
     h3 {
@@ -60,7 +60,7 @@
     }
     .summary {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 10px;
       margin-top: 18px;
     }
@@ -69,6 +69,19 @@
       border-radius: 8px;
       padding: 12px;
       background: #fafbfd;
+    }
+    .language-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+    .language-nav a {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 12px;
+      background: #fafbfd;
+      text-decoration: none;
     }
     a {
       color: var(--accent);
@@ -83,98 +96,195 @@
   <main>
     <header>
       <h1>有意打开 Support</h1>
-      <p class="muted">OpenIntent Support. Last updated: June 12, 2026.</p>
-      <p>有意打开 helps you intentionally lock and unlock selected apps with Apple Screen Time. This page explains setup, troubleshooting, privacy expectations, and how to report issues.</p>
+      <p class="muted">OpenIntent Support. Last updated: June 13, 2026.</p>
+      <p>有意打开 / 有意打開 / OpenIntent helps turn distracting app launches into deliberate choices with Screen Time groups, Shortcuts, and optional shield-page confirmation.</p>
       <div class="summary">
-        <div><strong>System requirement.</strong><br>iOS 17 or later.</div>
-        <div><strong>Permission required.</strong><br>Screen Time authorization is needed for app selection and shielding.</div>
-        <div><strong>Support channel.</strong><br>Use GitHub Issues for bug reports and feature requests.</div>
+        <div><strong>System requirement</strong><br>iOS 17 or later.</div>
+        <div><strong>Permission required</strong><br>Screen Time authorization is required for app selection and shielding.</div>
+        <div><strong>Privacy posture</strong><br>No collection, no tracking, local only, offline.</div>
       </div>
+      <nav class="language-nav" aria-label="Languages">
+        <a href="#zh-Hans">简体中文</a>
+        <a href="#zh-Hant">繁體中文</a>
+        <a href="#en-US">English</a>
+      </nav>
     </header>
 
-    <section>
-      <h2>1. Quick Setup</h2>
+    <section id="zh-Hans">
+      <h2>简体中文</h2>
+
+      <h3>1. App 能做什么</h3>
+      <p>有意打开帮助你减少冲动打开 App。你可以把容易分心的 App、类别或网站放进保护分组，按需要加锁、解锁，并通过快捷指令把“解锁并打开 App”和“关闭后重新加锁”串起来。</p>
+      <p>当前商店图对应的三个重点是：借助快捷指令在打开时执行精心编排的有意步骤；回前台时确认后才真正打开；不收集、无追踪，纯本地、不联网。</p>
+
+      <h3>2. 快速设置</h3>
       <ol>
-        <li>Install and open 有意打开.</li>
-        <li>Tap the Screen Time authorization button and allow access when iOS asks.</li>
-        <li>Create a protection group.</li>
-        <li>Select apps, categories, or web domains to protect.</li>
-        <li>Tap lock to apply protection. Tap unlock when you intentionally want temporary access.</li>
-        <li>Optional: use Shortcuts actions to lock or unlock a group by name.</li>
+        <li>安装并打开有意打开。</li>
+        <li>点击 Screen Time 授权按钮，并在 iOS 系统弹窗中允许。</li>
+        <li>创建或使用默认保护分组。</li>
+        <li>用系统 Screen Time 选择器选择要保护的 App、类别或网站。</li>
+        <li>在 App 中加锁该分组。加锁后，直接打开受保护 App 会先看到系统拦截页。</li>
+        <li>可选：在快捷指令中使用 <code>Unlock App Group</code> 打开前解锁，再打开目标 App，关闭后用 <code>Lock App Group</code> 重新加锁。</li>
+        <li>可选：开启“允许在 App 拦截页解锁分组进入”。开启后，若处于加锁状态，可在拦截页确认并进入当前 App 所在分组。</li>
       </ol>
+
+      <h3>3. 常见问题</h3>
+
+      <h3>Screen Time 授权没有出现或失败</h3>
+      <ul>
+        <li>确认设备支持并已启用 Screen Time。</li>
+        <li>检查 iOS 设置中的 Screen Time 限制。</li>
+        <li>退出并重新打开有意打开，再请求授权。</li>
+        <li>如果设备由组织或家庭管理员管理，Screen Time 可能受限。</li>
+      </ul>
+
+      <h3>选择的 App 没有被拦截</h3>
+      <ul>
+        <li>确认分组中已经选择了 App、类别或网站。</li>
+        <li>确认该分组当前处于加锁状态。</li>
+        <li>等待几秒，让 iOS ManagedSettings 应用拦截。</li>
+        <li>先全部解锁，再重新加锁目标分组。</li>
+      </ul>
+
+      <h3>快捷指令找不到分组</h3>
+      <ul>
+        <li>使用 App 中显示的准确分组名称。</li>
+        <li>编辑分组后，先打开一次有意打开，让 Shortcuts 读取最新状态。</li>
+        <li>确认该分组允许 Shortcuts 动作执行加锁或解锁。</li>
+      </ul>
+
+      <h3>拦截页按钮无法进入 App</h3>
+      <ul>
+        <li>确认该分组已开启“允许在 App 拦截页解锁分组进入”。</li>
+        <li>如果未开启，请先回到有意打开或通过快捷指令解锁分组，再打开目标 App。</li>
+        <li>如果刚修改设置，重新打开有意打开一次，再重试目标 App。</li>
+      </ul>
+
+      <h3>4. 隐私</h3>
+      <p>本 App 不联网、不采集你的使用数据。App 选择由系统 Screen Time 选择器完成，App 本身无法获得具体 App 信息。完整隐私政策：<a href="/protocols/openintent-app-pages/privacy.html">有意打开 Privacy Policy</a>。</p>
+
+      <h3>5. 反馈和问题报告</h3>
+      <p>通过 GitHub Issues 提交问题或需求：</p>
+      <p><a href="https://github.com/hereare/hereare.github.io/issues/new">https://github.com/hereare/hereare.github.io/issues/new</a></p>
+      <p>GitHub Issues 是公开的。请不要提交私密 App 列表、个人联系方式、私密截图或敏感家庭/设备信息。</p>
     </section>
 
-    <section>
-      <h2>2. Troubleshooting</h2>
+    <section id="zh-Hant">
+      <h2>繁體中文</h2>
+
+      <h3>1. App 能做什麼</h3>
+      <p>有意打開幫助你減少衝動打開 App。你可以把容易分心的 App、類別或網站放進保護分組，依需要加鎖、解鎖，並透過捷徑把「解鎖並打開 App」和「關閉後重新加鎖」串起來。</p>
+      <p>目前商店圖對應的三個重點是：借助捷徑在打開時執行精心編排的有意步驟；回前台時確認後才真正打開；不收集、無追蹤，純本機、不連網。</p>
+
+      <h3>2. 快速設定</h3>
+      <ol>
+        <li>安裝並打開有意打開。</li>
+        <li>點擊螢幕使用時間授權按鈕，並在 iOS 系統彈窗中允許。</li>
+        <li>建立或使用預設保護分組。</li>
+        <li>用系統螢幕使用時間選擇器選擇要保護的 App、類別或網站。</li>
+        <li>在 App 中加鎖該分組。加鎖後，直接打開受保護 App 會先看到系統攔截頁。</li>
+        <li>可選：在捷徑中使用 <code>Unlock App Group</code> 打開前解鎖，再打開目標 App，關閉後用 <code>Lock App Group</code> 重新加鎖。</li>
+        <li>可選：開啟「允許在 App 攔截頁解鎖分組進入」。開啟後，若處於加鎖狀態，可在攔截頁確認並進入目前 App 所在分組。</li>
+      </ol>
+
+      <h3>3. 常見問題</h3>
+
+      <h3>螢幕使用時間授權沒有出現或失敗</h3>
+      <ul>
+        <li>確認裝置支援並已啟用螢幕使用時間。</li>
+        <li>檢查 iOS 設定中的螢幕使用時間限制。</li>
+        <li>退出並重新打開有意打開，再請求授權。</li>
+        <li>如果裝置由組織或家庭管理員管理，螢幕使用時間可能受限。</li>
+      </ul>
+
+      <h3>選擇的 App 沒有被攔截</h3>
+      <ul>
+        <li>確認分組中已經選擇了 App、類別或網站。</li>
+        <li>確認該分組目前處於加鎖狀態。</li>
+        <li>等待幾秒，讓 iOS ManagedSettings 套用攔截。</li>
+        <li>先全部解鎖，再重新加鎖目標分組。</li>
+      </ul>
+
+      <h3>捷徑找不到分組</h3>
+      <ul>
+        <li>使用 App 中顯示的準確分組名稱。</li>
+        <li>編輯分組後，先打開一次有意打開，讓 Shortcuts 讀取最新狀態。</li>
+        <li>確認該分組允許 Shortcuts 動作執行加鎖或解鎖。</li>
+      </ul>
+
+      <h3>攔截頁按鈕無法進入 App</h3>
+      <ul>
+        <li>確認該分組已開啟「允許在 App 攔截頁解鎖分組進入」。</li>
+        <li>如果未開啟，請先回到有意打開或透過捷徑解鎖分組，再打開目標 App。</li>
+        <li>如果剛修改設定，重新打開有意打開一次，再重試目標 App。</li>
+      </ul>
+
+      <h3>4. 隱私</h3>
+      <p>本 App 不連網、不蒐集你的使用資料。App 選擇由系統螢幕使用時間選擇器完成，App 本身無法取得具體 App 資訊。完整隱私政策：<a href="/protocols/openintent-app-pages/privacy.html">有意打開 Privacy Policy</a>。</p>
+
+      <h3>5. 回饋和問題回報</h3>
+      <p>透過 GitHub Issues 提交問題或需求：</p>
+      <p><a href="https://github.com/hereare/hereare.github.io/issues/new">https://github.com/hereare/hereare.github.io/issues/new</a></p>
+      <p>GitHub Issues 是公開的。請不要提交私密 App 清單、個人聯絡方式、私密截圖或敏感家庭/裝置資訊。</p>
+    </section>
+
+    <section id="en-US">
+      <h2>English</h2>
+
+      <h3>1. What the App Does</h3>
+      <p>OpenIntent helps reduce impulsive app launches. You can put distracting apps, categories, or websites into protected groups, lock and unlock them when needed, and connect Shortcuts actions so an app can be intentionally unlocked, opened, and locked again after closing.</p>
+      <p>The current App Store screenshots focus on three points: intentional steps with Shortcuts before opening, confirmation before the app truly opens, and a privacy posture of no collection, no tracking, local only, and offline.</p>
+
+      <h3>2. Quick Setup</h3>
+      <ol>
+        <li>Install and open OpenIntent.</li>
+        <li>Tap the Screen Time authorization button and allow access when iOS asks.</li>
+        <li>Create or use the default protected group.</li>
+        <li>Use the system Screen Time picker to select apps, categories, or websites to protect.</li>
+        <li>Lock the group in the app. After locking, opening a protected app directly shows the system shield page first.</li>
+        <li>Optional: use <code>Unlock App Group</code> in Shortcuts before opening the target app, then use <code>Lock App Group</code> after the app closes.</li>
+        <li>Optional: enable entry from the app shield. When enabled, a locked app can be opened after confirming from the shield page for its group.</li>
+      </ol>
+
+      <h3>3. Troubleshooting</h3>
 
       <h3>Screen Time authorization does not appear or fails</h3>
       <ul>
-        <li>Confirm that Screen Time is available on the device.</li>
+        <li>Confirm that Screen Time is available and enabled on the device.</li>
         <li>Open iOS Settings and review Screen Time restrictions.</li>
-        <li>Quit and reopen 有意打开, then request authorization again.</li>
+        <li>Quit and reopen OpenIntent, then request authorization again.</li>
         <li>If the device is managed by an organization or family administrator, Screen Time settings may be restricted.</li>
       </ul>
 
       <h3>Selected apps are not blocked</h3>
       <ul>
-        <li>Confirm that the group contains selected apps, categories, or web domains.</li>
-        <li>Confirm that the group is locked in 有意打开.</li>
+        <li>Confirm that the group contains selected apps, categories, or websites.</li>
+        <li>Confirm that the group is currently locked.</li>
         <li>Wait a few seconds for iOS ManagedSettings to apply the shield.</li>
         <li>Unlock all groups, then lock the target group again.</li>
       </ul>
 
       <h3>Shortcuts action cannot find a group</h3>
       <ul>
-        <li>Use the exact group name shown in 有意打开.</li>
-        <li>Open 有意打开 once after editing groups so Shortcuts can see the latest state.</li>
-        <li>Confirm that shortcut lock/unlock actions are allowed for the group.</li>
+        <li>Use the exact group name shown in OpenIntent.</li>
+        <li>Open OpenIntent once after editing groups so Shortcuts can read the latest state.</li>
+        <li>Confirm that the group allows Shortcuts actions to lock or unlock it.</li>
       </ul>
 
       <h3>The shield page button does not enter the app</h3>
       <ul>
-        <li>Check the group's shield button entry setting in 有意打开.</li>
-        <li>If entry is disabled, use 有意打开 or Shortcuts to unlock the group first.</li>
+        <li>Confirm that entry from the app shield is enabled for the group.</li>
+        <li>If it is disabled, use OpenIntent or Shortcuts to unlock the group first, then open the target app.</li>
+        <li>If you just changed the setting, open OpenIntent once, then try the target app again.</li>
       </ul>
 
-      <h3>Reset local settings</h3>
-      <ul>
-        <li>Remove or rename groups in the app.</li>
-        <li>Use unlock controls to remove protection before uninstalling.</li>
-        <li>Delete and reinstall the app if you want iOS to remove local app data.</li>
-      </ul>
-    </section>
+      <h3>4. Privacy</h3>
+      <p>This app does not connect to the network or collect your usage data. App selection is handled by the system Screen Time picker, and the app cannot see the specific apps you choose. Full privacy policy: <a href="/protocols/openintent-app-pages/privacy.html">OpenIntent Privacy Policy</a>.</p>
 
-    <section>
-      <h2>3. Privacy and Data</h2>
-      <p>有意打开 does not use accounts, ads, analytics SDKs, or tracking SDKs. App selection is handled by Apple Screen Time and FamilyControls. Protection groups and Apple-provided system tokens are stored locally on the device so the main app and shield extensions can work.</p>
-      <p>Read the full privacy policy: <a href="/protocols/openintent-app-pages/privacy.html">有意打开 Privacy Policy</a>.</p>
-    </section>
-
-    <section>
-      <h2>4. Report a Bug or Request Help</h2>
+      <h3>5. Report a Bug or Request Help</h3>
       <p>Open a support request on GitHub Issues:</p>
       <p><a href="https://github.com/hereare/hereare.github.io/issues/new">https://github.com/hereare/hereare.github.io/issues/new</a></p>
       <p>GitHub Issues are public. Do not include private app lists, personal contact information, confidential screenshots, or sensitive family/device details.</p>
-
-      <h3>Useful details to include</h3>
-      <ul>
-        <li>Device model and iOS version.</li>
-        <li>有意打开 app version and build number.</li>
-        <li>Whether Screen Time authorization is granted.</li>
-        <li>What you expected to happen.</li>
-        <li>What actually happened.</li>
-        <li>Steps that reproduce the issue.</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>5. Feature Requests and Feedback</h2>
-      <p>Use the same GitHub Issues page for feature requests. Include the workflow you are trying to improve and why the current behavior does not fit it.</p>
-    </section>
-
-    <section>
-      <h2>6. App Review Notes</h2>
-      <p>The app requires Screen Time authorization to test app selection, group locking, unlocking, and shield behavior. No demo account is required.</p>
     </section>
   </main>
 </body>
